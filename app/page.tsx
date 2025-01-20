@@ -1,10 +1,12 @@
-import { Button } from "@/components/ui/button";
+import Container from "@/components/Container";
+import HomeBanner from "@/components/HomeBanner";
 
 export default function Home() {
   return (
     <div>
-      <h2>Ecommerce app</h2>
-      <Button>Demo Button</Button>
+      <Container className="py-10">
+        <HomeBanner />
+      </Container>
     </div>
   );
 }

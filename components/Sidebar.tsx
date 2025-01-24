@@ -6,6 +6,8 @@ import { X } from 'lucide-react';
 import { headerData } from '@/constants';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import SocialMedia from './SocialMedia';
+import { useOutsideClick } from '@/hooks/useOutsideClick';
 
 interface SidebarProps {
     isOpen: boolean;
@@ -14,12 +16,15 @@ interface SidebarProps {
 
 const Sidebar: FC<SidebarProps> = ({ isOpen, onClose }) => {
     const pathname = usePathname();
+    const sidebarRef = useOutsideClick<HTMLDivElement>(onClose);
+
     return (
-        <div className={`fixed inset-y-0 left-0 z-50 bg-darkColor/50 shadow-xl hoverEffect w-full ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+        <div className={`fixed inset-y-0 left-0 z-50 bg-darkColor/50 shadow-xl hoverEffect cursor-auto w-full ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.4, delay: 0.3 }}
+                ref={sidebarRef}
                 className='min-w-72 max-w-96 bg-darkColor text-white/70 h-full p-10 border-r border-r-white flex flex-col gap-6'
             >
                 <div className='flex items-center justify-between'>
@@ -37,6 +42,7 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, onClose }) => {
                             {item?.title}
                         </Link>
                     ))}</div>
+                <SocialMedia />
             </motion.div>
         </div>
     )

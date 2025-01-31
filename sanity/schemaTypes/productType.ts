@@ -27,7 +27,7 @@ export const productType = defineType({
             name: 'images',
             title: 'Product Images',
             type: 'array',
-            of: [{type: 'image', options: {hotspot: true}}],
+            of: [{ type: 'image', options: { hotspot: true } }],
         }),
         defineField({
             name: 'intro',
@@ -47,7 +47,7 @@ export const productType = defineType({
         }),
         defineField({
             name: 'discount',
-            title: 'Discount Price',
+            title: 'Discount Percentage',
             type: 'number',
             validation: (Rule) => Rule.required(),
         }),
@@ -55,7 +55,7 @@ export const productType = defineType({
             name: 'categories',
             title: 'Categories',
             type: 'array',
-            of: [{type: 'reference', to: {type: 'category'}}],
+            of: [{ type: 'reference', to: { type: 'category' } }],
         }),
         defineField({
             name: 'stock',
@@ -69,8 +69,8 @@ export const productType = defineType({
             type: 'string',
             options: {
                 list: [
-                    { title: 'New', value: 'new' }, 
-                    { title: 'Hot', value: 'hot' }, 
+                    { title: 'New', value: 'new' },
+                    { title: 'Hot', value: 'hot' },
                     { title: 'Sale', value: 'sale' }
                 ],
             },
@@ -81,12 +81,12 @@ export const productType = defineType({
             type: 'string',
             options: {
                 list: [
-                    {title: 'Tshirt', value: 'tshirt'}, 
-                    {title: 'Jacket', value: 'jacket'},
-                    {title: 'Pants', value: 'pants'},
-                    {title: 'Hoodie', value: 'hoodie'},
-                    {title: 'Short', value: 'short'},
-                    {title: 'Others', value: 'others'},
+                    { title: 'Tshirt', value: 'tshirt' },
+                    { title: 'Jacket', value: 'jacket' },
+                    { title: 'Pants', value: 'pants' },
+                    { title: 'Hoodie', value: 'hoodie' },
+                    { title: 'Short', value: 'short' },
+                    { title: 'Others', value: 'others' },
                 ],
             },
         }),
@@ -97,8 +97,8 @@ export const productType = defineType({
             media: 'images',
             subtitle: 'price',
         },
-        prepare(selection){
-            const {title, media, subtitle} = selection;
+        prepare(selection) {
+            const { title, media, subtitle } = selection;
             const image = media && media[0];
             return {
                 title: title,

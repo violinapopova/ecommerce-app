@@ -7,7 +7,6 @@ import PriceView from './PriceView';
 import AddToCartButton from './AddToCartButton';
 
 const ProductCard = ({ product }: { product: Product }) => {
-    console.log(product);
     return (
         <div className="group text-sm rounded-lg overflow-hidden">
             <div className="bg-gradient-to-r from-zinc-200 via-zinc-300 to-zinc-200 overflow-hidden relative">
@@ -22,6 +21,13 @@ const ProductCard = ({ product }: { product: Product }) => {
                             className={`w-full h-72 object-contain overflow-hidden hoverEffect ${product?.stock !== 0 && "group-hover:scale-105"}`}
                         />
                     </Link>
+                )}
+                {product?.stock === 0 && (
+                    <div className="absolute top-0 left-0 w-full h-full bg-darkColor/50 flex items-center justify-center">
+                        <p className="text-xl text-white font-semibold text-center">
+                            Out of Stock
+                        </p>
+                    </div>
                 )}
             </div>
             <div className="py-3 px-2 flex flex-col gap-1.5 bg-zinc-50 border border-t-0 rounded-lg rounded-tl-none rounded-tr-none">

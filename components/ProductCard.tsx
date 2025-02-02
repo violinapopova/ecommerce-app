@@ -5,6 +5,7 @@ import React from 'react';
 import { urlFor } from '@/sanity/lib/image';
 import PriceView from './PriceView';
 import AddToCartButton from './AddToCartButton';
+
 const ProductCard = ({ product }: { product: Product }) => {
     console.log(product);
     return (

@@ -7,12 +7,13 @@ import { cn } from "@/lib/utils";
 import QuantityButtons from "./QuantityButtons";
 import PriceFormatter from "./PriceFormatter";
 import useCartStore from "@/store";
-interface Props {
+
+interface AddToCartButtonProps {
     product: Product;
     className?: string;
 }
 
-const AddToCartButton = ({ product, className }: Props) => {
+const AddToCartButton = ({ product, className }: AddToCartButtonProps) => {
     const { addItem, getItemCount } = useCartStore();
     const itemCount = getItemCount(product?._id);
     const isOutOfStock = product?.stock === 0;

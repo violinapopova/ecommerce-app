@@ -6,14 +6,16 @@ import { cn } from "@/lib/utils";
 import useCartStore from "@/store";
 import toast from "react-hot-toast";
 
-interface Props {
+interface QuantityButtonsProps {
   product: Product;
   className?: string;
 }
-const QuantityButtons = ({ product, className }: Props) => {
+
+const QuantityButtons = ({ product, className }: QuantityButtonsProps) => {
   const { addItem, getItemCount, removeItem } = useCartStore();
   const itemCount = getItemCount(product?._id);
   const isOutOfStock = product?.stock === 0;
+
   const handleRemoveProduct = () => {
     removeItem(product?._id);
     if (itemCount > 1) {
@@ -22,6 +24,7 @@ const QuantityButtons = ({ product, className }: Props) => {
       toast.success(`${product?.name?.substring(0, 12)} removed successfully!`);
     }
   };
+  
   return (
     <div className={cn("flex items-center gap-1 text-base pb-1", className)}>
       <Button

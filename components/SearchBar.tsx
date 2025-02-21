@@ -46,6 +46,7 @@ const SearchBar = () => {
     }, 300);
     return () => clearTimeout(debounceTimer);
   }, [search, fetchProducts]);
+  
   return (
     <Dialog open={showSearch} onOpenChange={() => setShowSearch(!showSearch)}>
       <DialogTrigger onClick={() => setShowSearch(!showSearch)}>

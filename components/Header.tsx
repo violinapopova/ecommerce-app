@@ -4,7 +4,7 @@ import Logo from './Logo';
 import Container from './Container';
 import MobileMenu from './MobileMenu';
 import SearchBar from './SearchBar';
-import CartItem from './CartItem';
+import CartItem from './CartIcon';
 import { currentUser } from '@clerk/nextjs/server';
 import { ClerkLoaded, SignedIn, SignInButton, UserButton } from '@clerk/nextjs';
 import Link from 'next/link';
@@ -14,7 +14,7 @@ const Header = async () => {
   const user = await currentUser();
   console.log(user);
   return (
-    <header className='border-b border-b-gray-400 py-5'>
+    <header className="border-b border-b-gray-400 py-5 sticky top-0 z-50 bg-white">
       <Container className='flex items-center justify-between gap-7 text-lightColor'>
         <HeaderMenu />
         <div className='w-auto md:w-1/3 flex items-center justify-center gap-2.5'>

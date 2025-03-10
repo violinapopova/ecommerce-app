@@ -15,10 +15,13 @@ const Header = async () => {
   const user = await currentUser();
   const { userId } = await auth();
   const categories = await getAllCategories();
+
   let orders = null;
+
   if (userId) {
     orders = await getMyOrders(userId);
   }
+
   return (
     <header className="border-b border-b-gray-400 py-5 sticky top-0 z-50 bg-white">
       <Container className="flex items-center justify-between gap-7 text-lightColor">

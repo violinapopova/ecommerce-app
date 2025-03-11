@@ -35,6 +35,7 @@ const CategoryProducts = ({ categories, slug }: CategoryProductsProps) => {
   useEffect(() => {
     fetchProducts(currentSlug);
   }, [currentSlug]);
+  
   return (
     <div className="py-5 flex flex-col md:flex-row items-start gap-5">
       <div className="flex flex-col md:min-w-40 border">

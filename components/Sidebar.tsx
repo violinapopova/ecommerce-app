@@ -29,7 +29,7 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, onClose }) => {
             >
                 <div className='flex items-center justify-between'>
                     <button onClick={onClose}>
-                        <Logo className='text-white'>Tulos</Logo>
+                        <Logo className='text-white'>Trendora</Logo>
                     </button>
                     <button className='hover:text-red-500 hoverEffect' onClick={onClose}>
                         <X />

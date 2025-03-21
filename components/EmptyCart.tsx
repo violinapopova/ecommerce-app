@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "motion/react";
 import { ShoppingCart } from "lucide-react";
 import Link from "next/link";
+
 const EmptyCart = () => {
   return (
     <div className="py-10 md:py-20 bg-gradient-to-b from-blue-50 to-white flex items-center justify-center p-4">

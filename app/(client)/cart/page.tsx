@@ -31,6 +31,7 @@ const CartPage = () => {
   const [isClient, setIsClient] = useState(false);
   const [loading, setLoading] = useState(false);
   const { isSignedIn } = useAuth();
+
   const {
     deleteCartProduct,
     getTotalPrice,
@@ -39,14 +40,16 @@ const CartPage = () => {
     resetCart,
     getGroupedItems,
   } = useCartStore();
+
   const { user } = useUser();
+  const cartProducts = getGroupedItems();
+
   useEffect(() => {
     setIsClient(true);
   }, []);
   if (!isClient) {
     return <Loading />;
   }
-  const cartProducts = getGroupedItems();
 
   const handleResetCart = () => {
     const confirmed = window.confirm("Are you sure to reset your Cart?");
@@ -55,6 +58,7 @@ const CartPage = () => {
       toast.success("Your cart reset successfully!");
     }
   };
+  
   const handleDeleteProduct = (id: string) => {
     deleteCartProduct(id);
     toast.success("Product deleted successfully!");
